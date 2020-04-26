@@ -92,9 +92,6 @@ output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
 #
 # Basics:
 #
-    # Start a terminal
-    bindsym $mod+Return exec $term
-    bindsym Control+$mod1+t exec $term
 
     # Kill focused window
     bindsym $mod+Shift+q kill
@@ -118,7 +115,7 @@ output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
 #####################################################################################################################
 
 bindsym $mod+Shift+e exec --no-startup-id arcolinux-logout
-bindsym $mod+X exec --no-startup-id arcolinux-logout
+bindsym $mod+x exec --no-startup-id arcolinux-logout
 
 
 #####################################################################################################################
