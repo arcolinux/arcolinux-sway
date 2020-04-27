@@ -14,25 +14,22 @@ set $down j
 set $up k
 set $right l
 # Your preferred terminal emulator
-set $term termite
+set $term alacritty
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
-#set $menu dmenu_run -i -nb '#191919' -nf '#fea63c' -sb '#fea63c' -sf '#191919' -fn 'NotoMonoRegular:bold:pixelsize=14'
 set $menu dmenu_path | dmenu | xargs swaymsg exec --
 
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg /usr/share/backgrounds/arcolinux/arco-wallpaper.jpg fill
+output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
 #
 # Example configuration:
 #
 #   output HDMI-A-1 resolution 1920x1080 position 1920,0
 #
 # You can get the names of your outputs by running: swaymsg -t get_outputs
-
-#output VGA-1 resolution 1920x1080 position 1920,0
 
 ### Idle configuration
 #
@@ -61,8 +58,6 @@ output * bg /usr/share/backgrounds/arcolinux/arco-wallpaper.jpg fill
 #
 # You can get the names of your inputs by running: swaymsg -t get_inputs
 # Read `man 5 sway-input` for more information about this section.
-#
-input * xkb_layout "be" 
 
 ### Key bindings
 #
@@ -70,18 +65,12 @@ input * xkb_layout "be"
 #
     # Start a terminal
     bindsym $mod+Return exec $term
-    bindsym $mod+t exec $term
-
-    bindsym mod1+ctrl+f exec firefox
-
-    bindsym $mod+Shift+Return exec thunar
 
     # Kill focused window
     bindsym $mod+Shift+q kill
-    bindsym $mod+q kill
 
     # Start your launcher
-    bindsym $mod+Shift+d exec $menu
+    bindsym $mod+d exec $menu
 
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
@@ -91,11 +80,10 @@ input * xkb_layout "be"
     floating_modifier $mod normal
 
     # Reload the configuration file
-    bindsym $mod+Shift+r reload
+    bindsym $mod+Shift+c reload
 
     # Exit sway (logs you out of your Wayland session)
-    bindsym $mod+Shift+e arcolinux-logout
-    bindsym $mod+x exec arcolinux-logout
+    bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'
 #
 # Moving around:
 #
@@ -219,27 +207,12 @@ bar {
     # When the status_command prints a new line to stdout, swaybar updates.
     # The default just shows the current date and time.
     status_command while date +'%Y-%m-%d %l:%M:%S %p'; do sleep 1; done
-    #swaybar_command waybar
-    #workspace_buttons yes
-    colors {
-        background #2F2F2F
-        statusline #eeeeee
-        separator  #fdb95b
 
-        # colorclass           border  backgr. text
-        focused_workspace     #a9a9a9 #fdb95b #000000
-        active_workspace      #a9a9a9 #ffddaf #000000
-        inactive_workspace    #a9a9a9 #5f676a #eeeeee
-        urgent_workspace      #a9a9a9 #d42121 #eeeeee
+    colors {
+        statusline #ffffff
+        background #323232
+        inactive_workspace #32323200 #32323200 #5c5c5c
     }
 }
-gaps outer 10
-gaps inner 10
-smart_gaps on
-smart_borders on
-default_border pixel 2
-hide_edge_borders both
-exec /usrLib/polkit-gnome/polkit-gnome-authentication-agent-1 
-
 
 include /etc/sway/config.d/*
