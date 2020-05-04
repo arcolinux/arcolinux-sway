@@ -19,7 +19,7 @@ set $term termite
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
 #set $menu dmenu_run -i -nb '#191919' -nf '#fea63c' -sb '#fea63c' -sf '#191919' -fn 'NotoMonoRegular:bold:pixelsize=14'
-set $menu dmenu_path | dmenu | xargs swaymsg exec --
+set $menu dmenu_path | dmenu_run -i -nb '#191919' -nf '#fea63c' -sb '#fea63c' -sf '#191919' -fn 'NotoMonoRegular:bold:pixelsize=14' | xargs swaymsg exec --
 
 ### Output configuration
 #
@@ -71,6 +71,9 @@ input * xkb_layout "be"
     # Start a terminal
     bindsym $mod+Return exec $term
     bindsym $mod+t exec $term
+    bindsym Ctrl+Alt+t exec $term
+
+    bindsym Ctrl+Alt+t exec arcolinux-tweak-tool
 
     bindsym mod1+ctrl+f exec firefox
 
@@ -233,13 +236,15 @@ bar {
         urgent_workspace      #a9a9a9 #d42121 #eeeeee
     }
 }
-gaps outer 10
+gaps outer 5
 gaps inner 10
-smart_gaps on
+smart_gaps off
 smart_borders on
 default_border pixel 2
-hide_edge_borders both
-exec /usrLib/polkit-gnome/polkit-gnome-authentication-agent-1 
+#hide_edge_borders both
 
+exec /usrLib/polkit-gnome/polkit-gnome-authentication-agent-1
+exec autotiling
+exec numlockx on
 
 include /etc/sway/config.d/*
