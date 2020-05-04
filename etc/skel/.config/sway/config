@@ -243,7 +243,7 @@ smart_borders on
 default_border pixel 2
 #hide_edge_borders both
 
-exec /usrLib/polkit-gnome/polkit-gnome-authentication-agent-1
+exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec autotiling
 exec numlockx on
 
