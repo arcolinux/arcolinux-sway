@@ -73,7 +73,7 @@ input * xkb_layout "be"
     bindsym $mod+t exec $term
     bindsym Ctrl+Alt+t exec $term
 
-    bindsym Ctrl+Alt+t exec arcolinux-tweak-tool
+    bindsym Ctrl+Alt+e exec arcolinux-tweak-tool
 
     bindsym mod1+ctrl+f exec firefox
 
