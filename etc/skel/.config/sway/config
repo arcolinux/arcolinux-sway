@@ -1,25 +1,51 @@
-# Default config for sway
-#
-# Copy this to ~/.config/sway/config and edit it to your liking.
-#
-# Read `man 5 sway` for a complete reference.
+#Arcolinux Sway Config
+
+	include /etc/sway/config.d/*
+	#include $HOME/.config/sway/autostart
+
+###################################################################################
+
+### Autostart
+exec --no-startup-id dex $HOME/.config/autostart/arcolinux-welcome-app.desktop
+#exec spotify &
+exec discord &
+exec telegram &
+#exec mako &
+exec variety &
+exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
+exec autotiling
+#exec numlockx on &
+exec pamac-tray-applet &
+exec blueberry-tray &
+#exec blueman-applet &
+#exec xfce4-power-manager &
+#exec volumeicon-applet &
+exec nm-applet --indicator &
+exec pasystray  &
+exec xrdb ~/.Xresources
+exec picom -b --config ~/.config/sway/picom.conf &
+#--no-startup-id
+
+###################################################################################
 
 ### Variables
-#
-# Logo key. Use Mod1 for Alt.
-set $mod Mod4
+#Logo key. Use Mod1 for Alt.
+	set $mod Mod4
+
 # Home row direction keys, like vim
-set $left h
-set $down j
-set $up k
-set $right l
+	set $left h
+	set $down j
+	set $up k
+	set $right l
+
 # Your preferred terminal emulator
-set $term termite
+	set $term urxvt
+
 # Your preferred application launcher
-# Note: pass the final command to swaymsg so that the resulting window can be opened
-# on the original workspace that the command was run on.
-#set $menu dmenu_run -i -nb '#191919' -nf '#fea63c' -sb '#fea63c' -sf '#191919' -fn 'NotoMonoRegular:bold:pixelsize=14'
-set $menu dmenu_path | dmenu_run -i -nb '#191919' -nf '#fea63c' -sb '#fea63c' -sf '#191919' -fn 'NotoMonoRegular:bold:pixelsize=14' | xargs swaymsg exec --
+	set $menu dmenu_path | bemenu | xargs swaymsg exec --
+	#set $menu dmenu_path | wofi --d | xargs swaymsg exec --
+
+###################################################################################	
 
 ### Output configuration
 #
@@ -37,7 +63,6 @@ output * bg /usr/share/backgrounds/arcolinux/arco-wallpaper.jpg fill
 ### Idle configuration
 #
 # Example configuration:
-#
 # exec swayidle -w \
 #          timeout 300 'swaylock -f -c 000000' \
 #          timeout 600 'swaymsg "output * dpms off"' \
@@ -48,43 +73,56 @@ output * bg /usr/share/backgrounds/arcolinux/arco-wallpaper.jpg fill
 # your displays after another 300 seconds, and turn your screens back on when
 # resumed. It will also lock your screen before your computer goes to sleep.
 
+###################################################################################
+
 ### Input configuration
-#
-# Example configuration:
-#
-#   input "2:14:SynPS/2_Synaptics_TouchPad" {
-#       dwt enabled
-#       tap enabled
-#       natural_scroll enabled
-#       middle_emulation enabled
-#   }
-#
-# You can get the names of your inputs by running: swaymsg -t get_inputs
-# Read `man 5 sway-input` for more information about this section.
-#
-input * xkb_layout "be" 
+#Keyboard
+		input * xkb_layout "us", 
+
+# Remove all borders from applications
+		default_border none
+
+# Establish gaps between windows and from the screen edge  
+		gaps outer 5
+		gaps inner 5
+		smart_gaps on
+		smart_borders off
+		default_border pixel 2
+		#hide_edge_borders both
+
+###################################################################################
+
+### GTK Theme
+	set $gnome-schema org.gnome.desktop.interface
+		exec_always {
+			gsettings set $gnome-schema gtk-theme 'Arc-Dark'
+			gsettings set $gnome-schema icon-theme 'Surfn'
+			gsettings set $gnome-schema cursor-theme 'Bibata_Ice'
+			}
+
+###################################################################################
 
 ### Key bindings
-#
 # Basics:
-#
-    # Start a terminal
-    bindsym $mod+Return exec $term
-    bindsym $mod+t exec $term
-    bindsym Ctrl+Alt+t exec $term
 
-    bindsym Ctrl+Alt+e exec arcolinux-tweak-tool
-
-    bindsym mod1+ctrl+f exec firefox
-
-    bindsym $mod+Shift+Return exec thunar
+    #Start a terminal
+    	bindsym $mod+Return exec $term
+    	bindsym $mod+t exec $term
+    	bindsym Ctrl+Alt+t exec $term
+    
+    #Xwayland Support
+		#xwayland enable
 
     # Kill focused window
-    bindsym $mod+Shift+q kill
-    bindsym $mod+q kill
+    	bindsym $mod+Shift+q kill
+    	bindsym $mod+q kill
 
     # Start your launcher
-    bindsym $mod+Shift+d exec $menu
+    	bindsym $mod+Shift+d exec bemenu 
+    	bindsym $mod+d exec bemenu 
+	
+#dmenu_run -i -nb '#191919' -nf '#fea63c' -sb '#fea63c' -sf '#191919' -fn 'NotoMonoRegular:bold:pixelsize=14'12.08.2020
+
 
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
@@ -94,157 +132,353 @@ input * xkb_layout "be"
     floating_modifier $mod normal
 
     # Reload the configuration file
-    bindsym $mod+Shift+r reload
+    	bindsym $mod+Shift+r reload
 
     # Exit sway (logs you out of your Wayland session)
-    bindsym $mod+Shift+e arcolinux-logout
-    bindsym $mod+x exec arcolinux-logout
-#
-# Moving around:
-#
+    	bindsym $mod+Shift+e arcolinux-logout 
+    	bindsym $mod+x exec arcolinux-logout
+
+###################################################################################
+
+### Moving around:
+
     # Move your focus around
-    bindsym $mod+$left focus left
-    bindsym $mod+$down focus down
-    bindsym $mod+$up focus up
-    bindsym $mod+$right focus right
+    	bindsym $mod+$left focus left
+    	bindsym $mod+$down focus down
+    	bindsym $mod+$up focus up
+    	bindsym $mod+$right focus right
     # Or use $mod+[up|down|left|right]
-    bindsym $mod+Left focus left
-    bindsym $mod+Down focus down
-    bindsym $mod+Up focus up
-    bindsym $mod+Right focus right
+    	bindsym $mod+Left focus left
+    	bindsym $mod+Down focus down
+    	bindsym $mod+Up focus up
+    	bindsym $mod+Right focus right
 
     # Move the focused window with the same, but add Shift
-    bindsym $mod+Shift+$left move left
-    bindsym $mod+Shift+$down move down
-    bindsym $mod+Shift+$up move up
-    bindsym $mod+Shift+$right move right
+    	bindsym $mod+Shift+$left move left
+    	bindsym $mod+Shift+$down move down
+    	bindsym $mod+Shift+$up move up
+    	bindsym $mod+Shift+$right move right
     # Ditto, with arrow keys
-    bindsym $mod+Shift+Left move left
-    bindsym $mod+Shift+Down move down
-    bindsym $mod+Shift+Up move up
-    bindsym $mod+Shift+Right move right
-#
-# Workspaces:
-#
+    	bindsym $mod+Shift+Left move left
+    	bindsym $mod+Shift+Down move down
+    	bindsym $mod+Shift+Up move up
+    	bindsym $mod+Shift+Right move right
+###################################################################################
+
+### Workspaces:
     # Switch to workspace
-    bindsym $mod+1 workspace 1
-    bindsym $mod+2 workspace 2
-    bindsym $mod+3 workspace 3
-    bindsym $mod+4 workspace 4
-    bindsym $mod+5 workspace 5
-    bindsym $mod+6 workspace 6
-    bindsym $mod+7 workspace 7
-    bindsym $mod+8 workspace 8
-    bindsym $mod+9 workspace 9
-    bindsym $mod+0 workspace 10
+    	bindsym $mod+1 workspace 1
+    	bindsym $mod+2 workspace 2
+    	bindsym $mod+3 workspace 3
+    	bindsym $mod+4 workspace 4
+    	bindsym $mod+5 workspace 5
+    	bindsym $mod+6 workspace 6
+    	bindsym $mod+7 workspace 7
+    	bindsym $mod+8 workspace 8
+    	bindsym $mod+9 workspace 9
+    	bindsym $mod+0 workspace 10
+
     # Move focused container to workspace
-    bindsym $mod+Shift+1 move container to workspace 1
-    bindsym $mod+Shift+2 move container to workspace 2
-    bindsym $mod+Shift+3 move container to workspace 3
-    bindsym $mod+Shift+4 move container to workspace 4
-    bindsym $mod+Shift+5 move container to workspace 5
-    bindsym $mod+Shift+6 move container to workspace 6
-    bindsym $mod+Shift+7 move container to workspace 7
-    bindsym $mod+Shift+8 move container to workspace 8
-    bindsym $mod+Shift+9 move container to workspace 9
-    bindsym $mod+Shift+0 move container to workspace 10
-    # Note: workspaces can have any name you want, not just numbers.
-    # We just use 1-10 as the default.
-#
-# Layout stuff:
-#
+    	bindsym $mod+Shift+1 move container to workspace 1
+    	bindsym $mod+Shift+2 move container to workspace 2
+    	bindsym $mod+Shift+3 move container to workspace 3
+    	bindsym $mod+Shift+4 move container to workspace 4
+    	bindsym $mod+Shift+5 move container to workspace 5
+    	bindsym $mod+Shift+6 move container to workspace 6
+    	bindsym $mod+Shift+7 move container to workspace 7
+    	bindsym $mod+Shift+8 move container to workspace 8
+    	bindsym $mod+Shift+9 move container to workspace 9
+    	bindsym $mod+Shift+0 move container to workspace 10
+
+###################################################################################
+
+### Layout stuff:
     # You can "split" the current object of your focus with
     # $mod+b or $mod+v, for horizontal and vertical splits
     # respectively.
-    bindsym $mod+b splith
-    bindsym $mod+v splitv
+    #	bindsym $mod+b splith
+    #	bindsym $mod+v splitv
 
-    # Switch the current container between different layout styles
-    bindsym $mod+s layout stacking
-    bindsym $mod+w layout tabbed
-    bindsym $mod+e layout toggle split
+    # Switch the current container between different layout styles --WORKING???? 
+    	#bindsym $mod+s layout stacking
+    	#bindsym $mod+w layout tabbed
+    	#bindsym $mod+z layout toggle split
 
     # Make the current focus fullscreen
-    bindsym $mod+f fullscreen
+    	bindsym $mod+f fullscreen
 
     # Toggle the current focus between tiling and floating mode
-    bindsym $mod+Shift+space floating toggle
+    	bindsym $mod+Shift+space floating toggle
 
     # Swap focus between the tiling area and the floating area
-    bindsym $mod+space focus mode_toggle
+    	bindsym $mod+space focus mode_toggle
 
     # Move focus to the parent container
-    bindsym $mod+a focus parent
-#
-# Scratchpad:
-#
+    	bindsym $mod+a focus parent
+
+    #Moving between workspaces
+    	bindsym $mod+Tab workspace next
+    	bindsym $mod+Shift+Tab workspace prev
+
+###################################################################################
+
+### Floating Windows
+	for_window [app_id="arcolinux-welcome-app.py"] floating enable 
+	for_window [app_id="arcolinux-tweak-tool.py"] floating enable
+	for_window [app_id="pavucontrol"] floating enable
+	for_window [app_id="xfce4-terminal"] floating enable, move position 350px 0px 
+
+###################################################################################
+
+### Scratchpad:
     # Sway has a "scratchpad", which is a bag of holding for windows.
     # You can send windows there and get them back later.
 
     # Move the currently focused window to the scratchpad
-    bindsym $mod+Shift+minus move scratchpad
+    	bindsym $mod+Shift+minus move scratchpad
 
     # Show the next scratchpad window or hide the focused scratchpad window.
     # If there are multiple scratchpad windows, this command cycles through them.
-    bindsym $mod+minus scratchpad show
-#
-# Resizing containers:
-#
-mode "resize" {
+    	bindsym $mod+minus scratchpad show
+
+###################################################################################
+
+### Resizing containers:
+	mode "resize" {
     # left will shrink the containers width
     # right will grow the containers width
     # up will shrink the containers height
     # down will grow the containers height
-    bindsym $left resize shrink width 10px
-    bindsym $down resize grow height 10px
-    bindsym $up resize shrink height 10px
-    bindsym $right resize grow width 10px
+    	bindsym $left resize shrink width 10px
+    	bindsym $down resize grow height 10px
+    	bindsym $up resize shrink height 10px
+    	bindsym $right resize grow width 10px
 
     # Ditto, with arrow keys
-    bindsym Left resize shrink width 10px
-    bindsym Down resize grow height 10px
-    bindsym Up resize shrink height 10px
-    bindsym Right resize grow width 10px
+    	bindsym Left resize shrink width 10px
+    	bindsym Down resize grow height 10px
+    	bindsym Up resize shrink height 10px
+    	bindsym Right resize grow width 10px
 
     # Return to default mode
-    bindsym Return mode "default"
-    bindsym Escape mode "default"
+    	bindsym Return mode "default"
+    	bindsym Escape mode "default"
 }
-bindsym $mod+r mode "resize"
+		bindsym $mod+r mode "resize"
 
-#
-# Status Bar:
-#
-# Read `man 5 sway-bar` for more information about this section.
+###################################################################################
+
+### Status Bar
 bar {
-    position top
+    position bottom
+    font "Terminus (TTF)"
+    swaybar_command waybar
 
-    # When the status_command prints a new line to stdout, swaybar updates.
-    # The default just shows the current date and time.
-    status_command while date +'%Y-%m-%d %l:%M:%S %p'; do sleep 1; done
-    #swaybar_command waybar
-    #workspace_buttons yes
-    colors {
-        background #2F2F2F
-        statusline #eeeeee
-        separator  #fdb95b
+###################################################################################
 
-        # colorclass           border  backgr. text
-        focused_workspace     #a9a9a9 #fdb95b #000000
-        active_workspace      #a9a9a9 #ffddaf #000000
-        inactive_workspace    #a9a9a9 #5f676a #eeeeee
-        urgent_workspace      #a9a9a9 #d42121 #eeeeee
-    }
-}
-gaps outer 5
-gaps inner 10
-smart_gaps off
-smart_borders on
-default_border pixel 2
-#hide_edge_borders both
+### colors {
+    #	background #000000AA
+    #	statusline #ffffff
+    #	inactive_workspace #323232AA #323232AA #5c5c5cAA
 
-exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-exec autotiling
-exec numlockx on
+    #    background #2F2F2F
+    #    statusline #eeeeee
+    #    separator  #fdb95b
 
-include /etc/sway/config.d/*
+ 		 #colorclass           border  backgr. text
+    #    focused_workspace     #a9a9a9 #fdb95b #000000
+    #    active_workspace      #a9a9a9 #ffddaf #000000
+    #    inactive_workspace    #a9a9a9 #5f676a #eeeeee
+    #    urgent_workspace      #a9a9a9 #d42121 #eeeeee
+    	}
+	}
+
+###################################################################################
+
+### ARCOLINUX DEFAULT KEYBOARD BINDINGS 
+
+# SUPER + FUNCTIONS KEYS
+#Firefox
+	bindsym $mod+F1 exec firefox
+
+# Geany
+	bindsym $mod+F2 exec geamu
+
+#Inkscape
+	bindsym $mod+F3 exec inkscape
+
+#Gimp
+	bindsym $mod+f4 exec gimp
+
+#Meld
+	bindsym $mod+F5 exec meld
+
+#Virtualbox
+	bindsym $mod+F7 exec virtualbox
+
+#Thunar
+	bindsym $mod+F8 exec thunar
+
+#Evolution
+	bindsym $mod+F9 exec evolution
+
+#Spotify
+	bindsym $mod+F10 exec spotify
+
+#Wofi Fullscreen
+	#bindsym $mod+F11 exec --no-startup-id rofi -fullscreen -show run  -m -1 
+
+#Wofi 
+	bindsym $mod+F12 exec wofi --show drun 
+
+#SUPER + .... KEYS
+#Atom
+	bindsym $mod+e exec atom
+	
+#Browser
+	bindsym $mod+w exec vivaldi-stable
+
+#Conky-toggle
+	bindsym $mod+c exec conky-toggle
+
+#Htop
+#	bindsym $mod+h exec urxvt 'htop task manager' -e htop
+  
+#Pavucontrol
+	bindsym $mod+v exec pavucontrol
+
+#Pragha
+	bindsym $mod+m exec pragha
+	
+#Xkill
+	bindsym $mod+Escape exec xkill
+   
+#Super + Shift Keys
+#File-Manager
+	bindsym $mod+shift+Return exec thunar
+
+
+#Control + ALT Keys
+#arcolinux-welcome-app
+	bindsym ctrl+alt+w exec arcolinux-welcome-app
+
+#arcolinux-tweak-tool
+	bindsym ctrl+alt+e exec arcolinux-tweak-tool     
+
+#File-Manager
+	bindsym ctrl+alt+b exec thunar
+     
+#Catfish
+	bindsym ctrl+alt+c exec catfish
+	
+#Chromium
+	bindsym ctrl+alt+g exec chromium -no-default-browser-check
+
+#Evolution
+	bindsym ctrl+alt+v exec evolution
+
+#Firefox
+	bindsym ctrl+alt+f exec firefox
+	
+#Nitrogen
+	bindsym ctrl+alt+i exec nitrogen
+
+#Pamac-manager
+	bindsym ctrl+alt+p exec pamac-manager
+
+#Xfce4-settings-manager
+	bindsym ctrl+alt+m exec xfce4-settings-manager
+
+#Pulse Audio Control
+	bindsym ctrl+alt+u exec pavucontrol
+
+#Spotify
+	bindsym ctrl+alt+s exec spotify
+
+#Termite
+	bindsym ctrl+alt+Return exec termite
+
+#Xfce4-appfinder
+	bindsym ctrl+alt+a exec xfce4-appfinder
+	
+#Picom Toggle
+	bindsym ctrl+alt+o exec ~/.config/sway/scripts/picom-toggle.sh
+
+	
+#ALT + ... Keys
+#Wallpaper trash
+	bindsym alt+t exec variety -t
+
+#Wallpaper next
+	bindsym alt+n exec variety -n
+
+#Wallpaper previous
+	bindsym alt+p exec variety -p
+
+#Wallpaper favorite
+	bindsym alt+f exec variety -f
+
+#Wallpaper previous
+	bindsym alt+Left exec variety -p
+
+#Wallpaper next
+	bindsym alt + Right exec variety -n
+
+#Wallpaper toggle-pause
+	bindsym alt+Up exec variety --toggle-pause
+
+#Wallpaper resume
+	bindsym alt+Down exec variety --resume
+	
+#Gmrun
+	bindsym alt+F2 exec gmrun
+
+#Xfce4-appfinder
+	bindsym alt+F3 exec xfce4-appfinder
+
+#xfce4-terminal dropdown
+	bindsym F12 exec xfce4-terminal --drop-down
+
+#Screenshot
+	bindsym $mod+Shift+s exec grim ~/Pictures/$(date '+%Y-%m-%d-%T')-screenshot.png
+
+
+#MULTIMEDIA Keys
+#Raises volume
+	bindsym XF86AudioRaiseVolume exec pamixer set Master 10%+
+
+#Lowers volume
+	bindsym XF86AudioLowerVolume exec pamixer set Master 10%-
+
+#Mute
+	bindsym XF86AudioMute exec pamixer -D pulse set Master 1+ toggle
+
+#PLAY
+	bindsym XF86AudioPlay exec playerctl play-pause
+
+#Next
+	bindsym XF86AudioNext exec playerctl next
+
+#previous
+	bindsym XF86AudioPrev exec playerctl previous
+
+#Stop
+	bindsym XF86AudioStop exec playerctl stop
+
+#Brightness up
+	bindsym XF86MonBrightnessUp exec xbacklight -inc 10
+
+#Brightness down
+	bindsym XF86MonBrightnessDown exec xbacklight -dec 10
+
+###################################################################################
+
+# Bind App to workspace
+# Check class by : xprop
+# swaymsg -t get_tree
+#assign [class="Google-chrome"] $ws2
+#assign [class="KeePass2"] $ws3
+#assign [class="Pcmanfm"] $ws4
+#assign [class="firefox"] $ws1
+#assign [class="pamac-manager"] $ws3
+#assign [class="Skype"] $ws7
