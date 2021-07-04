@@ -13,7 +13,6 @@ exec telegram &
 #exec mako &
 exec variety &
 exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
-exec autotiling
 #exec numlockx on &
 exec pamac-tray-applet &
 exec blueberry-tray &
@@ -39,7 +38,7 @@ exec picom -b --config ~/.config/sway/picom.conf &
 	set $right l
 
 # Your preferred terminal emulator
-	set $term urxvt
+	set $term alacritty
 
 # Your preferred application launcher
 	set $menu dmenu_path | bemenu | xargs swaymsg exec --
@@ -270,28 +269,8 @@ output * bg /usr/share/backgrounds/arcolinux/arco-wallpaper.jpg fill
 
 ### Status Bar
 bar {
-    position bottom
-    font "Terminus (TTF)"
-    swaybar_command waybar
-
-###################################################################################
-
-### colors {
-    #	background #000000AA
-    #	statusline #ffffff
-    #	inactive_workspace #323232AA #323232AA #5c5c5cAA
-
-    #    background #2F2F2F
-    #    statusline #eeeeee
-    #    separator  #fdb95b
-
- 		 #colorclass           border  backgr. text
-    #    focused_workspace     #a9a9a9 #fdb95b #000000
-    #    active_workspace      #a9a9a9 #ffddaf #000000
-    #    inactive_workspace    #a9a9a9 #5f676a #eeeeee
-    #    urgent_workspace      #a9a9a9 #d42121 #eeeeee
-    	}
-	}
+	swaybar_command waybar
+}
 
 ###################################################################################
 
@@ -445,13 +424,13 @@ bar {
 
 #MULTIMEDIA Keys
 #Raises volume
-	bindsym XF86AudioRaiseVolume exec pamixer set Master 10%+
+	bindsym XF86AudioRaiseVolume exec pamixer -ui 10
 
 #Lowers volume
-	bindsym XF86AudioLowerVolume exec pamixer set Master 10%-
+	bindsym XF86AudioLowerVolume exec pamixer -ud 10
 
 #Mute
-	bindsym XF86AudioMute exec pamixer -D pulse set Master 1+ toggle
+	bindsym XF86AudioMute exec pamixer --toggle-mute
 
 #PLAY
 	bindsym XF86AudioPlay exec playerctl play-pause
@@ -466,10 +445,11 @@ bar {
 	bindsym XF86AudioStop exec playerctl stop
 
 #Brightness up
-	bindsym XF86MonBrightnessUp exec xbacklight -inc 10
+	bindsym XF86MonBrightnessUp exec brightnessctl -d "intel_backlight" set +10%
 
 #Brightness down
-	bindsym XF86MonBrightnessDown exec xbacklight -dec 10
+		bindsym XF86MonBrightnessDown exec brightnessctl -d "intel_backlight" set 10%-
+
 
 ###################################################################################
 
