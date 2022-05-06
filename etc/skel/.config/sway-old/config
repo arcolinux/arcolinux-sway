@@ -224,7 +224,7 @@ output * bg /usr/share/backgrounds/arcolinux/arco-wallpaper.jpg fill
 
 ### Floating Windows
 	for_window [app_id="arcolinux-welcome-app.py"] floating enable 
-	for_window [app_id="arcolinux-tweak-tool.py"] floating enable
+	for_window [app_id="archlinux-tweak-tool.py"] floating enable
 	for_window [app_id="pavucontrol"] floating enable
 	for_window [app_id="xfce4-terminal"] floating enable, move position 350px 0px 
 
@@ -362,8 +362,8 @@ bar {
 #arcolinux-welcome-app
 	bindsym ctrl+alt+w exec arcolinux-welcome-app
 
-#arcolinux-tweak-tool
-	bindsym ctrl+alt+e exec arcolinux-tweak-tool     
+#archlinux-tweak-tool
+	bindsym ctrl+alt+e exec archlinux-tweak-tool     
 
 #File-Manager
 	bindsym ctrl+alt+b exec thunar
