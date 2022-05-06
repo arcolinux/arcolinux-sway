@@ -135,8 +135,8 @@ output * bg /usr/share/backgrounds/arcolinux/arco-wallpaper.jpg fill
     	bindsym $mod+Shift+r reload
 
     # Exit sway (logs you out of your Wayland session)
-    	bindsym $mod+Shift+e arcolinux-logout 
-    	bindsym $mod+x exec arcolinux-logout
+    	bindsym $mod+Shift+e archlinux-logout 
+    	bindsym $mod+x exec archlinux-logout
 
 ###################################################################################
 
