@@ -3,13 +3,14 @@
 # daemonize
 indicator-caps-lock
 # datestr=%A
-image=$HOME/.config/sway/swaylock.png
+image=$HOME/.config/swaylock/swaylock.png
 scaling=fill
 font=UbuntuMono
 font-size=20
 
+
 # Ring
-indicator-radius=115
+indicator-radius=360
 # line-uses-ring
 line-color=#3b4252
 text-color=#d8dee9
