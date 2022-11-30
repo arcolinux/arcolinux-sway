@@ -35,7 +35,7 @@ exec swayidle -w\
  bindsym $mod+f1 exec ~/.config/sway/scripts/lockman.sh
 
 ## xfce4-terminal
- bindsym $mod+f12 exec xfce4-terminal --drop-down
+ bindsym f12 exec xfce4-terminal --drop-down
 
 ### Key bindings
 #
