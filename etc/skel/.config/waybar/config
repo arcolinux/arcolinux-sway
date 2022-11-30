@@ -5,7 +5,7 @@
     //"width": 1350, // Waybar width
     // Choose the order of the modules idle_inhibitor
     "modules-left": ["custom/launcher","sway/workspaces", "sway/mode", "sway/window"],
-    "modules-right": ["custom/pacman", "backlight", "custom/keyboard-layout", "cpu", "memory", "battery", "network", "pulseaudio","tray", "idle_inhibitor", "clock","custom/power"], 
+    "modules-right": ["custom/pacman", "backlight", "custom/keyboard-layout", "cpu", "memory", "battery", "pulseaudio","tray", "idle_inhibitor", "clock","custom/archlinuxlogout"], 
     
  // Modules configuration
  
@@ -52,11 +52,11 @@
     },
     "cpu": {
         "format": "﬙ {usage: >3}%",
-        "on-click": "alacritty -e htop"
+        "on-click": "alacritty -e bashtop"
     },
     "memory": {
         "format": " {: >3}%",
-        "on-click": "alacritty -e htop"
+        "on-click": "alacritty -e bashtop"
     },
     "temperature": {
         // "thermal-zone": 2,
@@ -120,6 +120,11 @@
       	"format":"⏻",
        	"on-click": "nwg-bar",
       	"tooltip": false,
+   },
+    "custom/archlinuxlogout": {
+        "format":"⏻",
+        "on-click": "archlinux-logout",
+        "tooltip": false,
    },
    "custom/keyboard-layout": {
       	"exec": "swaymsg -t get_inputs | grep -m1 'xkb_active_layout_name' | cut -d '\"' -f4",

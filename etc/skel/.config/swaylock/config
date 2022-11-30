@@ -3,9 +3,9 @@
 # daemonize
 indicator-caps-lock
 # datestr=%A
-image=$HOME/.config/swaylock/swaylock.png
+image=$HOME/.config/swaylock/swaylock.jpg
 scaling=fill
-font=UbuntuMono
+font=Noto Sans
 font-size=20
 
 
