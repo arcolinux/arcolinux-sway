@@ -4,7 +4,6 @@ exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 # Desktop notifications
 exec mako -c ~/.config/sway/mako/config
 
-
 # GTK3 applications take a long time to start
 exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK
 exec hash dbus-update-activation-environment 2>/dev/null && \
@@ -20,8 +19,8 @@ exec tail -f $SWAYSOCK.wob | wob --border-color '#ffdcbb8c' --background-color '
 # Autotiling
 exec autotiling
 
-# Wlsunset
-exec ~/.config/sway/scripts/light.sh
+# Wlsunset - night colors
+# exec ~/.config/sway/scripts/light.sh
 
 # nm-applet
 exec nm-applet --indicator
@@ -37,19 +36,19 @@ exec wl-paste -t text --watch clipman store
 exec gnome-keyring-daemon --daemonize --start --components=gpg,pkcs11,secrets,ssh
 
 # for Touchpad gestures
-exec libinput-gestures-setup start
+# exec libinput-gestures-setup start
 
 # Outputs
-exec kanshi
+# exec kanshi
 
 # Xdg Desktop Portal
-exec /usr/libexec/xdg-desktop-portal
+# exec /usr/libexec/xdg-desktop-portal
 
 # Tracker daemon for gnome apps
-exec tracker daemon -s
+# exec tracker daemon -s
 
 # Cheatsheet
-exec micro ~/.config/sway/cheatsheet
+# exec micro ~/.config/sway/cheatsheet
 
 # nwg-drawer
 exec_always nwg-drawer -r 
