@@ -51,7 +51,7 @@ bindsym $mod+Shift+Return exec thunar
 
 # Start a terminal
 bindsym $mod+Return exec $terminal
-bindsym $mod+t exec $terminal
+bindsym $mod+t exec urxvt
 bindsym Ctrl+Alt+Return exec $terminal
 bindsym Ctrl+Alt+t exec $terminal
 

@@ -1,16 +1,17 @@
+// https://github.com/Alexays/Waybar/wiki
 {
     "layer": "top", // Waybar at top layer
     "position": "top", // Waybar position (top|bottom|left|right)
-    "height": 30,
+    "height": 24,
     //"width": 1350, // Waybar width
     // Choose the order of the modules idle_inhibitor
     "modules-left": ["custom/launcher","sway/workspaces", "sway/mode", "sway/window"],
-    "modules-right": ["custom/pacman", "backlight", "custom/keyboard-layout", "cpu", "memory", "battery", "pulseaudio","tray", "idle_inhibitor", "clock","custom/archlinuxlogout"], 
+    "modules-right": ["backlight", "custom/keyboard-layout", "cpu", "memory", "battery", "pulseaudio", "idle_inhibitor", "clock","tray","custom/archlinuxlogout"], 
     
  // Modules configuration
  
     "sway/workspaces": {
-        "disable-scroll": true,
+        "disable-scroll": false,
         "all-outputs": true,
         "format": "{icon}",
         "format-icons": {
