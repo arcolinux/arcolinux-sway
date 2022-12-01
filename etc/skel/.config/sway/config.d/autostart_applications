@@ -2,7 +2,7 @@
 exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 
 # Desktop notifications
-exec mako
+exec mako -c ~/.config/sway/mako/config
 
 
 # GTK3 applications take a long time to start
@@ -42,7 +42,7 @@ exec libinput-gestures-setup start
 # Outputs
 exec kanshi
 
-# Xdg DEsktop Portal
+# Xdg Desktop Portal
 exec /usr/libexec/xdg-desktop-portal
 
 # Tracker daemon for gnome apps
