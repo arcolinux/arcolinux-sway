@@ -6,7 +6,7 @@
     //"width": 1350, // Waybar width
     // Choose the order of the modules idle_inhibitor
     "modules-left": ["custom/launcher","sway/workspaces", "sway/mode", "sway/window"],
-    "modules-right": ["backlight", "custom/keyboard-layout", "cpu", "memory", "battery", "pulseaudio", "idle_inhibitor", "clock","tray","custom/archlinuxlogout"], 
+    "modules-right": ["backlight", "cpu", "memory", "battery", "pulseaudio", "idle_inhibitor", "clock","tray", "custom/keybindings", "custom/archlinuxlogout"], 
     
  // Modules configuration
  
@@ -44,9 +44,9 @@
     },
     "clock": {
         "tooltip-format": "{:%A %B %d %Y | %H:%M}",
-        "format": " {:%a %d %b  %I:%M %p}",	//12 hour format
-        //"format": " {:%a %d %b  %H:%M}",	//24 hour format
-        "format-alt": " {:%d/%m/%Y  %H:%M:%S}",
+        "format": " {:%a %d %b  %I:%M %p}",	//12 hour format
+        //"format": " {:%a %d %b  %H:%M}",	//24 hour format
+        "format-alt": " {:%d/%m/%Y  %H:%M:%S}",
         //"timezones": [ "Kolkata" ],
         //"max-length": 200
         "interval": 1
@@ -135,6 +135,11 @@
       	// Signal sent by Sway key binding (~/.config/sway/key-bindings)
       	"signal": 1, // SIGHUP
       	"tooltip": false,
+        "on-click": "~/.config/waybar/scripts/keyhint.sh",
+},
+   "custom/keybindings": {
+        "format":" 爵 ",
+        "tooltip": false,
         "on-click": "~/.config/waybar/scripts/keyhint.sh",
 },
      "custom/launcher": {

@@ -173,6 +173,12 @@ window#waybar {
     font-size: 24px;    
 }
 
+#custom-keybindings{
+    border-style: hidden;
+    margin-top:2px;
+    font-size: 24px;    
+}
+
 #window{
     border-style: hidden;
     margin-top:1px;  

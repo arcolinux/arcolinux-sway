@@ -1,4 +1,4 @@
-# Garuda Sway-WM CheatSheet #
+# Sway-WM CheatSheet #
 
    = Super Key
 
