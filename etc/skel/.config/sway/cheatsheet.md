@@ -39,3 +39,12 @@
   - User configuration files are in `~/.config/`.
   - Sway configuration files are in `~/.config/sway/config.d/`.
   - Similarly, Waybar configuration is in `~/.config/waybar`.
+
+# user githubs
+  - https://gitlab.com/garuda-linux/themes-and-settings/settings/garuda-sway-settings
+  - https://gitlab.com/risca-dot-files/sway/-/tree/master/.config/sway
+  - https://github.com/weasnerb/sway-dots
+
+# share your own files on github 
+  - so we can all learn
+  - and you have a backup
