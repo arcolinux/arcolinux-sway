@@ -125,6 +125,8 @@ bindsym Ctrl+Alt+u exec pavucontrol
 # bashtop
 bindsym Ctrl+Shift+Escape exec kitty -e bashtop
 
+bindsym $mod+Escape exec ~/.config/sway/scripts/wkill.sh
+
 # CONTROL + ALT
 bindsym Ctrl+Alt+b exec thunar
 bindsym Ctrl+Alt+f exec firefox
