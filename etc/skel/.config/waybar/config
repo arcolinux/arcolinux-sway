@@ -135,12 +135,12 @@
       	// Signal sent by Sway key binding (~/.config/sway/key-bindings)
       	"signal": 1, // SIGHUP
       	"tooltip": false,
-        "on-click": "~/.config/waybar/scripts/keyhint.sh",
+        "on-click": "~/.config/waybar/scripts/keyhint",
 },
    "custom/keybindings": {
         "format":" 爵 ",
         "tooltip": false,
-        "on-click": "~/.config/waybar/scripts/keyhint.sh",
+        "on-click": "~/.config/waybar/scripts/keyhint",
 },
      "custom/launcher": {
     	"format":" ",
