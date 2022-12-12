@@ -18,15 +18,15 @@
   Ctrl   PrintSrc         *screenshot selection*
 
 # application shortcuts
-  Ctrl    Shift U         *pavucontrol*
-  Ctrl    Shift P         *pamac-manager*
+  Ctrl    Alt U           *pavucontrol*
+  Ctrl    Alt P           *pamac-manager*
   Super   Shift  Return   *file manager* (`thunar`)
   Super   F1              *browser* (`firefox`)
 
 # container layout
  
   Super   Shift   Space       *toggle tiling/floating mode*
-  Super   left mouse button   *move window*
+  Super   left  mouse button  *move window*
   Super   right mouse button  *resize window*
 
 # workspaces
