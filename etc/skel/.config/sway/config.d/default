@@ -10,7 +10,7 @@ set $editor code
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
-set $menu wofi -c ~/.config/wofi/config -I
+set $menu wofi -c ~/.config/sway/wofi/config -I -s ~/.config/sway/wofi/style.css
 
 set $launcher nwg-drawer -c 7 -is 70 -spacing 23
 
