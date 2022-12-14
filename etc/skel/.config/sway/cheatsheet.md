@@ -6,18 +6,19 @@
   Super          Return   *term* (`kitty`)
   Super          q        *quit* (kill focused window)
   Super   Shift  q        *quit* (kill focused window)
-  Super          d        *show app menu* (`wofi small`)
-  Super   Shift  d        *show app menu* (`launcher large`)
+  Super          d        *launcher* 
+  Super   Shift  d        *dmenu*
   Super          x        *show archlinux-logout* (lock/suspend/logout/reboot/shutdown)
   Super   Shift  r        *reload config files* (`reload`)
   Super          Escape   *kill application*
 
 # screenshot
-  PrintSrc		          *full screenshot*
-  Shift  PrintSrc    	  *screenshot options*
+  PrintSrc		            *full screenshot*
+  Shift  PrintSrc    	    *screenshot active*
   Ctrl   PrintSrc         *screenshot selection*
 
 # application shortcuts
+  Ctrl    Alt F           *firefox*
   Ctrl    Alt U           *pavucontrol*
   Ctrl    Alt P           *pamac-manager*
   Super   Shift  Return   *file manager* (`thunar`)

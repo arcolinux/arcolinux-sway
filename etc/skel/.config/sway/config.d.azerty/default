@@ -62,9 +62,6 @@ bindsym $mod+t exec urxvt
 bindsym Ctrl+Alt+Return exec foot
 bindsym Ctrl+Alt+t exec $terminal
 
-# Open the power menu
-bindsym $mod+Shift+e exec $powermenu
-
 # archlinux-logout
 bindsym $mod+x exec archlinux-logout
 bindsym $mod+Shift+x exec archlinux-logout
@@ -81,15 +78,6 @@ bindsym $mod+d exec $grandmenu
 
 # dmenu
 bindsym $mod+Shift+d exec $dmenu
-
-# Activities
-bindsym $mod+p exec swayr switch-window
-
-# Activities and workspaces
-bindsym $mod+Shift+p exec swayr switch-workspace-or-window
-
-# Switch to the last recently used window
-bindsym $mod+Tab exec swayr switch-to-urgent-or-lru-window
 
 # Cheatsheet
 bindsym $mod+Shift+i exec $cheat
@@ -126,10 +114,7 @@ bindsym Alt+Up exec variety --pause
 # resume wallpaper
 bindsym Alt+Down exec variety --resume
 
-#pavucontrol
-bindsym Ctrl+Alt+u exec pavucontrol
-
-# bashtop
+# task manager
 bindsym Ctrl+Shift+Escape exec kitty -e bashtop
 
 bindsym $mod+Escape exec ~/.config/sway/scripts/wkill.sh
@@ -139,6 +124,7 @@ bindsym Ctrl+Alt+b exec thunar
 bindsym Ctrl+Alt+f exec firefox
 bindsym Ctrl+Alt+g exec chromium
 bindsym Ctrl+Alt+p exec pamac-manager
+bindsym Ctrl+Alt+u exec pavucontrol
 bindsym Ctrl+Alt+v exec vivaldi-stable
 bindsym Ctrl+Alt+s exec spotify
 
@@ -291,17 +277,14 @@ bindsym XF86AudioMute exec pamixer --toggle-mute && ( pamixer --get-mute && echo
     bindsym XF86AudioStop exec playerctl stop
 #
 # Backlight
-#
+# install light if needed
     bindsym XF86MonBrightnessUp exec light -A 5 && light -G | cut -d'.' -f1 > $SWAYSOCK.wob
     bindsym XF86MonBrightnessDown exec light -U 5 && light -G | cut -d'.' -f1 > $SWAYSOCK.wob
-#
-# App shortcuts
-#
     
 #
 # Screenshots
 #
 bindsym print exec /usr/share/sway/scripts/grimshot --notify save output
-bindsym Shift+print exec ~/.config/sway/scripts/screenshot.sh
-bindsym Ctrl+print exec /usr/share/sway/scripts/grimshot --notify copy area
+bindsym Shift+print exec /usr/share/sway/scripts/grimshot --notify save active
+bindsym Ctrl+print exec /usr/share/sway/scripts/grimshot --notify save area
 

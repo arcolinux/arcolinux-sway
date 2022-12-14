@@ -1,4 +1,5 @@
 #!/bin/sh
+# install wlsunset
 CONTENT=$(curl -s https://freegeoip.app/json/)
 longitude=$(echo $CONTENT | jq .longitude)
 latitude=$(echo $CONTENT | jq .latitude)
