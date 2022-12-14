@@ -10,11 +10,9 @@ set $editor code
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
-set $menu wofi -c ~/.config/wofi/config -I
+set $dmenu dmenu_run -i -nb '#191919' -nf '#fea63c' -sb '#fea63c' -sf '#191919' -fn 'NotoMonoRegular:bold:pixelsize=14'
 
-set $launcher nwg-drawer -c 7 -is 70 -spacing 23
-
-set $powermenu nwg-bar
+set $grandmenu rofi -no-config -no-lazy-grab -show drun -modi drun -theme ~/.config/sway/rofi/launcher2.rasi
 
 set $cheat kitty -e micro ~/.config/sway/cheatsheet.md
 
@@ -23,10 +21,10 @@ set $cheat kitty -e micro ~/.config/sway/cheatsheet.md
 #with lock
 
 #exec swayidle -w\
-#    timeout 1200 'swaylock -f -C ~/.config/swaylock/config'\
+#    timeout 1200 'swaylock -f -C ~/.config/sway/swaylock/config'\
 #    timeout 1200 'swaymsg "output * dpms off"' \
 #    resume 'swaymsg "output * dpms on"' \
-#    before-sleep 'swaylock -C ~/.config/swaylock/config'
+#    before-sleep 'swaylock -C ~/.config/sway/swaylock/config'
 
 # without lock
 exec swayidle -w\
@@ -78,11 +76,11 @@ bindsym Ctrl+Alt+l exec ~/.config/sway/scripts/lockman.sh
 bindsym $mod+q kill
 bindsym $mod+Shift+q kill
 
-# Launcher - small screen
-bindsym $mod+d exec $menu
+# Rofi menu
+bindsym $mod+d exec $grandmenu
 
-# Launcher - full screen
-bindsym $mod+Shift+d exec $launcher
+# dmenu
+bindsym $mod+Shift+d exec $dmenu
 
 # Activities
 bindsym $mod+p exec swayr switch-window

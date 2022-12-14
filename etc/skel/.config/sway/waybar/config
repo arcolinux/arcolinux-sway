@@ -1,6 +1,6 @@
 // https://github.com/Alexays/Waybar/wiki
 {
-    "layer": "top", // Waybar at top layer
+    "layer": "bottom", // Waybar at top layer
     "position": "top", // Waybar position (top|bottom|left|right)
     "height": 24,
     //"width": 1350, // Waybar width
@@ -140,7 +140,7 @@
    "custom/keybindings": {
         "format":" 爵 ",
         "tooltip": false,
-        "on-click": "~/.config/waybar/scripts/keyhint",
+        "on-click": "~/.config/sway/waybar/scripts/keyhint",
 },
      "custom/launcher": {
     	"format":" ",

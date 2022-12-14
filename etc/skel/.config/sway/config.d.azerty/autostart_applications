@@ -14,9 +14,6 @@ exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 
 # Desktop notifications
 exec mako -c ~/.config/sway/mako/config
-
-# Sway Fader
-# exec python3 ~/.config/sway/scripts/swayfader.py     
  
 # Wob
 exec mkfifo $SWAYSOCK.wob
@@ -44,17 +41,8 @@ exec gnome-keyring-daemon --daemonize --start --components=gpg,pkcs11,secrets,ss
 # for Touchpad gestures
 # exec libinput-gestures-setup start
 
-# Outputs
-# exec kanshi
-
 # Xdg Desktop Portal
 # exec /usr/libexec/xdg-desktop-portal
-
-# Tracker daemon for gnome apps
-# exec tracker daemon -s
-
-# Cheatsheet
-# exec micro ~/.config/sway/cheatsheet
 
 # nwg-drawer
 exec_always nwg-drawer -r 
