@@ -120,7 +120,6 @@ bindsym Ctrl+Shift+Escape exec kitty -e bashtop
 bindsym $mod+Escape exec ~/.config/sway/scripts/wkill.sh
 
 # CONTROL + ALT
-bindsym Ctrl+Alt+a exec xfce4-appfinder
 bindsym Ctrl+Alt+b exec thunar
 bindsym Ctrl+Alt+f exec firefox
 bindsym Ctrl+Alt+g exec chromium
