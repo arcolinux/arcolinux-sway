@@ -12,7 +12,7 @@
  
     "sway/workspaces": {
         "disable-scroll": false,
-        "all-outputs": true,
+        //"all-outputs": true,
         "format": "{icon}",
         "format-icons": {
 		"3": "3",
