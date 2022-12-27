@@ -13,8 +13,8 @@
   Super          Escape   *kill application*
 
 # screenshot
-  PrintSrc		            *full screenshot*
-  Shift  PrintSrc    	    *screenshot active*
+  PrintSrc                *full screenshot*
+  Shift  PrintSrc         *screenshot active*
   Ctrl   PrintSrc         *screenshot selection*
 
 # application shortcuts
