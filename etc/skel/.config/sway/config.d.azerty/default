@@ -27,9 +27,9 @@ set $cheat kitty -e micro ~/.config/sway/cheatsheet.md
 #    before-sleep 'swaylock -C ~/.config/sway/swaylock/config'
 
 # without lock
-exec swayidle -w\
-    timeout 1200 'swaymsg "output * dpms off"' \
-    resume 'swaymsg "output * dpms on"'
+#exec swayidle -w\
+#    timeout 1200 'swaymsg "output * dpms off"' \
+#    resume 'swaymsg "output * dpms on"'
 
 # This will lock your screen after 300 seconds of inactivity, then turn off
 # your displays after another 300 seconds, and turn your screens back on when
