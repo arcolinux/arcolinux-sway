@@ -21,6 +21,9 @@ exec autotiling
 # Wlsunset - night colors - install this application
 # exec ~/.config/sway/scripts/light.sh
 
+# Xauthority
+exec ~/.config/sway/scripts/xauthority
+
 # nm-applet
 exec nm-applet --indicator
 
