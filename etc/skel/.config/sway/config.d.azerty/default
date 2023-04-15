@@ -62,6 +62,9 @@ bindsym $mod+t exec urxvt
 bindsym Ctrl+Alt+Return exec foot
 bindsym Ctrl+Alt+t exec $terminal
 
+# archlinux tweak tool
+bindsym Ctrl+Alt+e archlinux-tweak-tool
+
 # archlinux-logout
 bindsym $mod+x exec archlinux-logout
 bindsym $mod+Shift+x exec archlinux-logout
@@ -287,4 +290,5 @@ bindsym XF86AudioMute exec pamixer --toggle-mute && ( pamixer --get-mute && echo
 bindsym print exec grimshot --notify save output
 bindsym Shift+print exec grimshot --notify save active
 bindsym Ctrl+print exec grimshot --notify save area
+bindsym Ctrl+$mod+print exec flameshot gui
 
