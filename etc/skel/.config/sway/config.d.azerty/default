@@ -10,7 +10,7 @@ set $editor code
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
-set $dmenu dmenu_run -i -nb '#191919' -nf '#fea63c' -sb '#fea63c' -sf '#191919' -fn 'NotoMonoRegular:bold:pixelsize=14'
+set $smallmenu rofi -no-config -no-lazy-grab -show drun -modi drun -theme ~/.config/sway/rofi/launcher1.rasi
 
 set $grandmenu rofi -no-config -no-lazy-grab -show drun -modi drun -theme ~/.config/sway/rofi/launcher2.rasi
 
@@ -79,8 +79,8 @@ bindsym $mod+Shift+q kill
 # Launcher menu
 bindsym $mod+d exec $grandmenu
 
-# dmenu
-bindsym $mod+Shift+d exec $dmenu
+# Launcher menu
+bindsym $mod+Shift+d exec $smallmenu
 
 # Cheatsheet
 bindsym $mod+Shift+i exec $cheat
