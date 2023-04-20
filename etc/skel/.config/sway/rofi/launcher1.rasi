@@ -35,8 +35,8 @@ window {
     height:                         60%;
 	width:							60%;
     location:                       northwest;
-    x-offset:                        2%;
-    y-offset:                        5%;
+    x-offset:                        20%;
+    y-offset:                        20%;
 }
 
 
@@ -46,7 +46,7 @@ entry {
     expand:                         false;
     horizontal-align:               50%;
     placeholder:                    "Type to search";
-    margin:                         0% 0% 0% 37%;
+    margin:                         0% 0% 0% 0%;
     padding:                        1.5% 5.5%;
     blink:                          true;
 }
