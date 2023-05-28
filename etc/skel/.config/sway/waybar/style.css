@@ -46,7 +46,7 @@ nord15 #b48ead
     border-radius: 0;
     padding: 0 0;
     font-family:Noto Sans;
-    font-size: 14px;
+    font-size: 12px;
     margin-right: 5px;
     margin-left: 5px;
     padding-bottom:3px;
@@ -164,19 +164,19 @@ window#waybar {
 #custom-launcher,#custom-power,#custom-archlinuxlogout{
     border-style: hidden;
     margin-top:2px;
-    font-size: 28px;    
+    font-size: 20px;    
 }
 
 #custom-archlinuxlogout{
     border-style: hidden;
     margin-top:2px;
-    font-size: 24px;    
+    font-size: 20px;    
 }
 
 #custom-keybindings{
     border-style: hidden;
     margin-top:2px;
-    font-size: 24px;    
+    font-size: 20px;    
 }
 
 #window{

@@ -52,11 +52,11 @@
         "interval": 1
     },
     "cpu": {
-        "format": "﬙ {usage: >3}%",
+        "format": "cpu: {usage: >3}%",
         "on-click": "alacritty -e bashtop"
     },
     "memory": {
-        "format": " {: >3}%",
+        "format": "mem: {: >3}%",
         "on-click": "alacritty -e bashtop"
     },
     "temperature": {
@@ -97,15 +97,15 @@
         "scroll-step": 5,
         "format": "{icon} {volume: >3}%",
         "format-bluetooth": "{icon} {volume: >3}%",
-        "format-muted":" muted",
+        "format-muted":"󰖁 muted",
         "format-icons": {
-            "headphones": "",
-            "handsfree": "",
-            "headset": "",
+            "headphones": "󰕾",
+            "handsfree": "󰕾",
+            "headset": "󰕾",
             "phone": "",
             "portable": "",
             "car": "",
-            "default": ["", ""]
+            "default": ["󰕾", "󰕾"]
         },
         "on-click": "pavucontrol"
     },
@@ -118,12 +118,12 @@
         "signal": 8
     },
     "custom/power": {
-      	"format":"⏻",
+      	"format":" ⏻ ",
        	"on-click": "nwg-bar",
       	"tooltip": false,
    },
     "custom/archlinuxlogout": {
-        "format":"⏻",
+        "format":" ⏻ ",
         "on-click": "archlinux-logout",
         "tooltip": false,
    },
@@ -138,7 +138,7 @@
         "on-click": "~/.config/waybar/scripts/keyhint",
 },
    "custom/keybindings": {
-        "format":" 爵 ",
+        "format":"  ",
         "tooltip": false,
         "on-click": "~/.config/sway/waybar/scripts/keyhint",
 },
