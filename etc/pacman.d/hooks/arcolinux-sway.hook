@@ -1,0 +1,12 @@
+[Trigger]
+Operation = Install
+Operation = Upgrade
+Type = Package
+Target = sway
+Target = sway-git
+Target = sway-dev
+
+[Action]
+Description = Modifying Sway Desktop file...
+When = PostTransaction
+Exec = /usr/bin/sed -i -e 's/Exec=.*/Exec=run-sway/g' /usr/share/wayland-sessions/sway.desktop
