@@ -58,7 +58,7 @@ bindsym $mod+Shift+Return exec thunar
 
 # Start a terminal
 bindsym $mod+Return exec kitty
-bindsym $mod+t exec urxvt
+bindsym $mod+t exec kitty
 bindsym Ctrl+Alt+Return exec foot
 bindsym Ctrl+Alt+t exec $terminal
 
