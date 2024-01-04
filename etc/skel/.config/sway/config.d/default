@@ -106,6 +106,7 @@ bindsym Ctrl+Alt+Prior exec conky-rotate -p
 bindsym Alt+t exec variety -t
 # next wallpaper
 bindsym Alt+n exec variety -n
+bindsym Shift+Alt+n exec variety -n && wal -i $(cat $HOME/.config/variety/wallpaper/wallpaper.jpg.txt)
 bindsym Alt+Right exec variety -n
 # previous wallpaper
 bindsym Alt+p exec variety -p
@@ -118,7 +119,8 @@ bindsym Alt+Up exec variety --pause
 bindsym Alt+Down exec variety --resume
 
 # task manager
-bindsym Ctrl+Shift+Escape exec kitty -e bashtop
+bindsym Ctrl+Shift+Escape exec kitty -e btop
+bindsym Ctrl+Alt+End exec kitty -e btop
 
 bindsym $mod+Escape exec ~/.config/sway/scripts/wkill.sh
 

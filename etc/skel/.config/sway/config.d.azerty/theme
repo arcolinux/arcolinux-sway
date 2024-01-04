@@ -26,5 +26,4 @@ client.focused_inactive #88c0d0 #2e3440 #d8dee9 #4c566a   #4c566a
 client.unfocused        #88c0d0 #2e3440 #d8dee9 #4c566a   #4c566a
 client.urgent           #ebcb8b #ebcb8b #2e3440 #8fbcbb   #ebcb8b
 
-exec waybar --bar main-bar --log-level error --config $HOME/.config/sway/waybar/config --style $HOME/.config/sway/waybar/style.css
-
+exec $HOME/.config/sway/scripts/statusbar
