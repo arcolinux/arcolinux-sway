@@ -21,18 +21,15 @@ exec autotiling
 # Wlsunset - night colors - install this application
 # exec ~/.config/sway/scripts/light.sh
 
-# Xauthority
-exec ~/.config/sway/scripts/xauthority
+# Welcome
+exec dex -a -s /etc/xdg/autostart/:~/.config/autostart/
 
 # nm-applet
 exec nm-applet --indicator
 
-# Welcome
-exec dex -a -s /etc/xdg/autostart/:~/.config/autostart/
-
-# Clipman wl-paste - install this application
-#exec clipman restore
-#exec wl-paste -t text --watch clipman store
+# Clipman wl-paste
+# exec clipman restore
+# exec wl-paste -t text --watch clipman store
 
 # Gnome Keyring
 exec gnome-keyring-daemon --daemonize --start --components=gpg,pkcs11,secrets,ssh
@@ -47,5 +44,4 @@ exec gnome-keyring-daemon --daemonize --start --components=gpg,pkcs11,secrets,ss
 exec_always nwg-drawer -r
 
 # open as root in thunar
-
 exec_always /usr/local/bin/arcolinux-fix-wayland-xauthority
