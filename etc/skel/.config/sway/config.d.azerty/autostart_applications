@@ -42,6 +42,3 @@ exec gnome-keyring-daemon --daemonize --start --components=gpg,pkcs11,secrets,ss
 
 # nwg-drawer
 exec_always nwg-drawer -r
-
-# open as root in thunar
-exec_always /usr/local/bin/arcolinux-fix-wayland-xauthority
