@@ -47,7 +47,7 @@ bindsym $mod+F5 exec meld
 bindsym $mod+F6 exec vlc
 bindsym $mod+F7 exec virtualbox
 bindsym $mod+F8 exec $files
-bindsym $mod+F9 exec evolution
+bindsym $mod+F9 exec lollypop
 bindsym $mod+F10 exec spotify
 bindsym $mod+F11 exec rofi -show drun
 bindsym $mod+F12 exec rofi -show drun
