@@ -2,6 +2,9 @@
 # See FS#63021
 # Adapted from xorg's 50-systemd-user.sh, which achieves a similar goal.
 
+# install wlr-randr for virtual machines
+# wlr-randr --output Virtual-1 --mode 1920x1080
+
 # default greeting background
 output "*" bg /usr/share/backgrounds/arco/arco-wallpaper.jpg fill
 
